@@ -3,10 +3,121 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-secondary: #506170;
+    --color-primary: #37628a;
+    --color-surface-bright: #f7f9fb;
+    --color-tertiary-fixed: #dfccfd;
+    --color-outline-variant: #acb3b7;
+    --color-on-background: #2c3437;
+    --color-tertiary-fixed-dim: #d1beef;
+    --color-on-tertiary-fixed-variant: #5a4b74;
+    --color-on-primary-fixed-variant: #225077;
+    --color-on-primary-fixed: #003354;
+    --color-surface-tint: #37628a;
+    --color-surface-dim: #d4dbdf;
+    --color-on-surface-variant: #596064;
+    --color-surface-container-low: #f0f4f7;
+    --color-tertiary: #675882;
+    --color-on-primary-container: #16476d;
+    --color-error-dim: #67040d;
+    --color-error-container: #fa746f;
+    --color-outline: #747c80;
+    --color-secondary-fixed-dim: #c5d6e8;
+    --color-tertiary-dim: #5a4c75;
+    --color-background: #f7f9fb;
+    --color-primary-dim: #29567d;
+    --color-on-error-container: #6e0a12;
+    --color-secondary-dim: #445564;
+    --color-inverse-primary: #a6d0fe;
+    --color-inverse-on-surface: #9a9d9f;
+    --color-surface-container: #eaeff2;
+    --color-tertiary-container: #dfccfd;
+    --color-on-tertiary: #fef7ff;
+    --color-surface-variant: #dce4e8;
+    --color-error: #a83836;
+    --color-on-tertiary-container: #50426a;
+    --color-on-secondary-fixed-variant: #4d5d6c;
+    --color-primary-fixed-dim: #98c2ef;
+    --color-surface-container-high: #e3e9ed;
+    --color-primary-container: #a6d0fe;
+    --color-on-primary: #f7f9ff;
+    --color-inverse-surface: #0b0f10;
+    --color-on-secondary-container: #435462;
+    --color-surface: #f7f9fb;
+    --color-on-tertiary-fixed: #3d2f56;
+    --color-secondary-container: #d3e5f7;
+    --color-on-error: #fff7f6;
+    --color-secondary-fixed: #d3e5f7;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-surface: #2c3437;
+    --color-primary-fixed: #a6d0fe;
+    --color-on-secondary: #f6f9ff;
+    --color-surface-container-highest: #dce4e8;
+    --color-on-secondary-fixed: #31414f;
+  }
+
+  .dark {
+    --color-secondary: #9baad6;
+    --color-primary: #cdebf9;
+    --color-surface-bright: #0c1934;
+    --color-tertiary-fixed: #dfccfd;
+    --color-outline-variant: #222e49;
+    --color-on-background: #dee5ff;
+    --color-tertiary-fixed-dim: #d1beef;
+    --color-on-tertiary-fixed-variant: #5a4b74;
+    --color-on-primary-fixed-variant: #225077;
+    --color-on-primary-fixed: #003354;
+    --color-surface-tint: #cdebf9;
+    --color-surface-dim: #050d1f;
+    --color-on-surface-variant: #9baad6;
+    --color-surface-container-low: #060e20;
+    --color-tertiary: #dfccfd;
+    --color-on-primary-container: #cdebf9;
+    --color-error-dim: #a83836;
+    --color-error-container: #6e0a12;
+    --color-outline: #33445c;
+    --color-secondary-fixed-dim: #c5d6e8;
+    --color-tertiary-dim: #d1beef;
+    --color-background: #060e20;
+    --color-primary-dim: #98c2ef;
+    --color-on-error-container: #fa746f;
+    --color-secondary-dim: #c5d6e8;
+    --color-inverse-primary: #37628a;
+    --color-inverse-on-surface: #060e20;
+    --color-surface-container: #081329;
+    --color-tertiary-container: #3d2f56;
+    --color-on-tertiary: #060e20;
+    --color-surface-variant: #142449;
+    --color-error: #fa746f;
+    --color-on-tertiary-container: #dfccfd;
+    --color-on-secondary-fixed-variant: #4d5d6c;
+    --color-primary-fixed-dim: #98c2ef;
+    --color-surface-container-high: #0b1630;
+    --color-primary-container: #142449;
+    --color-on-primary: #060e20;
+    --color-inverse-surface: #dee5ff;
+    --color-on-secondary-container: #dee5ff;
+    --color-surface: #081329;
+    --color-on-tertiary-fixed: #3d2f56;
+    --color-secondary-container: #142449;
+    --color-on-error: #67040d;
+    --color-secondary-fixed: #d3e5f7;
+    --color-surface-container-lowest: #040914;
+    --color-on-surface: #dee5ff;
+    --color-primary-fixed: #a6d0fe;
+    --color-on-secondary: #060e20;
+    --color-surface-container-highest: #0c1934;
+    --color-on-secondary-fixed: #31414f;
+  }
+}
+
+
+@layer base {
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #f7f9fb;
-    color: #2c3437;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
     -webkit-font-smoothing: antialiased;
   }
 }
@@ -25,32 +136,32 @@
   }
 
   .wind-gradient {
-    background: linear-gradient(135deg, #f7f9fb 0%, #eaeff2 50%, #dce4e8 100%);
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface-container) 50%, var(--color-surface-variant) 100%);
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: color-mix(in srgb, var(--color-surface-container-lowest) 60%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-panel {
-    background: rgba(220, 228, 232, 0.6);
+    background: color-mix(in srgb, var(--color-surface-container-high) 60%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-nav {
-    background-color: rgba(247, 249, 251, 0.6);
+    background-color: color-mix(in srgb, var(--color-background) 60%, transparent);
     backdrop-filter: blur(12px);
   }
 
   .primary-gradient-btn {
-    background: linear-gradient(135deg, #37628a 0%, #29567d 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dim) 100%);
   }
 
   .bg-primary-gradient {
-    background: linear-gradient(135deg, #37628a 0%, #29567d 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dim) 100%);
   }
 }
 
@@ -66,7 +177,7 @@
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #dce4e8;
+    background: var(--color-surface-variant);
     border-radius: 10px;
   }
 
@@ -85,14 +196,14 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
   cursor: pointer;
-  background: #eaeff2;
+  background: var(--color-surface-container);
   border-radius: 999px;
 }
 input[type=range]::-webkit-slider-thumb {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #37628a;
+  background: var(--color-primary);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -7px;
