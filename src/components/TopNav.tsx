@@ -1,8 +1,10 @@
 
 import { useLocation } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 
 const TopNav = () => {
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
   const showSearch = location.pathname !== '/select-brand';
 
   return (
@@ -22,8 +24,10 @@ const TopNav = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <button className="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors">
-          <span className="material-symbols-outlined text-slate-600 dark:text-slate-300">dark_mode</span>
+        <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors">
+          <span className="material-symbols-outlined text-slate-600 dark:text-slate-300">
+            {theme === 'dark' ? 'light_mode' : 'dark_mode'}
+          </span>
         </button>
         <button className="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors relative">
           <span className="material-symbols-outlined text-slate-600 dark:text-slate-300">notifications</span>

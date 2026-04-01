@@ -1,8 +1,10 @@
 
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 
 const BrandSelection = () => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleBrandSelect = () => {
     navigate('/create-post');
@@ -17,7 +19,9 @@ const BrandSelection = () => {
           <span className="text-xl font-bold text-slate-800 dark:text-slate-100">Atmospheric Editor</span>
         </div>
         <div className="flex items-center gap-6">
-          <button className="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded-full transition-colors" data-icon="dark_mode">dark_mode</button>
+          <button onClick={toggleTheme} className="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded-full transition-colors">
+            {theme === 'dark' ? 'light_mode' : 'dark_mode'}
+          </button>
           <button className="material-symbols-outlined text-slate-500 hover:bg-slate-200/50 p-2 rounded-full transition-colors" data-icon="notifications">notifications</button>
           <div className="h-10 w-10 rounded-full bg-surface-container-high flex items-center justify-center border-2 border-surface-container-lowest overflow-hidden">
             <img

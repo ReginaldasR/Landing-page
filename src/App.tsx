@@ -8,10 +8,12 @@ import Campaigns from './pages/Campaigns';
 import ContentCalendar from './pages/ContentCalendar';
 import Analytics from './pages/Analytics';
 import Layout from './components/Layout';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <Router>
+    <ThemeProvider>
+      <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/select-brand" element={<BrandSelection />} />
@@ -24,7 +26,8 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
+      </Router>
+    </ThemeProvider>
   );
 }
 
