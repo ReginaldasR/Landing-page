@@ -1,8 +1,10 @@
 
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -11,6 +13,20 @@ const Login = () => {
 
   return (
     <main className="flex-1 flex items-center justify-center relative px-6 py-12 wind-gradient min-h-screen">
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        className="absolute right-6 top-6 z-20 inline-flex items-center gap-2 rounded-full border border-outline-variant/20 bg-surface-container-lowest/80 px-4 py-2 text-sm font-semibold text-on-surface shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:scale-[1.02] hover:bg-surface-container-highest/70 focus:outline-none focus:ring-2 focus:ring-primary/30"
+      >
+        <span className="material-symbols-outlined text-lg">
+          {theme === 'dark' ? 'light_mode' : 'dark_mode'}
+        </span>
+        <span className="hidden sm:inline">
+          Switch to {theme === 'dark' ? 'light' : 'dark'}
+        </span>
+      </button>
+
       {/* Abstract Wind Shapes (Background Decoration) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[60%] rounded-full bg-primary/5 blur-[120px]"></div>
